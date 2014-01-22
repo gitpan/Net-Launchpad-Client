@@ -1,6 +1,6 @@
 package Net::Launchpad::Model::Bug;
 # ABSTRACT: Bug Model
-$Net::Launchpad::Model::Bug::VERSION = '0.99';
+$Net::Launchpad::Model::Bug::VERSION = '1.00';
 
 use Mojo::Base 'Net::Launchpad::Client';
 
@@ -134,7 +134,7 @@ Net::Launchpad::Model::Bug - Bug Model
 
 =head1 VERSION
 
-version 0.99
+version 1.00
 
 =head1 SYNOPSIS
 
@@ -249,17 +249,6 @@ Returns count of users affected by bug
 =head2 watches
 
 Returns bug watch collection
-
-=head1 AUTHOR
-
-Adam Stokes <adamjs@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2014 by Adam Stokes.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =head1 AUTHOR
 

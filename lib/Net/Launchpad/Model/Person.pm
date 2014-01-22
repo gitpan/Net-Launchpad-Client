@@ -1,6 +1,6 @@
 package Net::Launchpad::Model::Person;
 # ABSTRACT: Person model
-$Net::Launchpad::Model::Person::VERSION = '0.99';
+$Net::Launchpad::Model::Person::VERSION = '1.00';
 
 use Mojo::Base 'Net::Launchpad::Client';
 
@@ -111,7 +111,7 @@ Net::Launchpad::Model::Person - Person model
 
 =head1 VERSION
 
-version 0.99
+version 1.00
 
 =head1 SYNOPSIS
 
@@ -205,17 +205,6 @@ Returns persons time zone
 =head2 web_link
 
 Returns friendly display name, usually first and last name.
-
-=head1 AUTHOR
-
-Adam Stokes <adamjs@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2014 by Adam Stokes.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =head1 AUTHOR
 

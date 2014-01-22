@@ -1,6 +1,6 @@
 package Net::Launchpad::Client;
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '0.99';
+$Net::Launchpad::Client::VERSION = '1.00';
 
 use Mojo::Base -base;
 use Mojo::JSON;
@@ -108,7 +108,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 0.99
+version 1.00
 
 =head1 SYNOPSIS
 
@@ -170,17 +170,6 @@ Performs a HTTP GET request for a particular resource.
 =head2 post
 
 Performs a HTTP POST request for a resource.
-
-=head1 AUTHOR
-
-Adam Stokes <adamjs@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2014 by Adam Stokes.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =head1 AUTHOR
 

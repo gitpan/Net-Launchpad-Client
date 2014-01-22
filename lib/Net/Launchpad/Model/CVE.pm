@@ -1,6 +1,6 @@
 package Net::Launchpad::Model::CVE;
 # ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '0.99';
+$Net::Launchpad::Model::CVE::VERSION = '1.00';
 
 use Mojo::Base 'Net::Launchpad::Client';
 
@@ -77,7 +77,7 @@ Net::Launchpad::Model::CVE - CVE Model
 
 =head1 VERSION
 
-version 0.99
+version 1.00
 
 =head1 SYNOPSIS
 
@@ -145,17 +145,6 @@ Returns brief description of the ref and state
 =head2 url
 
 Returns URL to site that contains CVE data for this CVE reference.
-
-=head1 AUTHOR
-
-Adam Stokes <adamjs@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2014 by Adam Stokes.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =head1 AUTHOR
 

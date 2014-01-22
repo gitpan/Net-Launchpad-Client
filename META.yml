@@ -9,6 +9,7 @@ build_requires:
   Test::Mojo: 0
   Test::More: 0
   Test::NoTabs: 0
+  strict: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
@@ -18,4 +19,10 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Net-Launchpad-Client
-version: 0.99
+requires:
+  Class::Load: 0
+  Mojo::Base: 0
+  Mojo::JSON: 0
+  Mojo::Parameters: 0
+  Mojo::UserAgent: 0
+version: 1.00

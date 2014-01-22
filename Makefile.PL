@@ -20,16 +20,23 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Net::Launchpad::Client",
-  "PREREQ_PM" => {},
+  "PREREQ_PM" => {
+    "Class::Load" => 0,
+    "Mojo::Base" => 0,
+    "Mojo::JSON" => 0,
+    "Mojo::Parameters" => 0,
+    "Mojo::UserAgent" => 0
+  },
   "TEST_REQUIRES" => {
     "Class::Load" => 0,
     "Mojolicious" => 0,
     "Net::Launchpad" => 0,
     "Test::Mojo" => 0,
     "Test::More" => 0,
-    "Test::NoTabs" => 0
+    "Test::NoTabs" => 0,
+    "strict" => 0
   },
-  "VERSION" => "0.99",
+  "VERSION" => "1.00",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -38,11 +45,16 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Class::Load" => 0,
+  "Mojo::Base" => 0,
+  "Mojo::JSON" => 0,
+  "Mojo::Parameters" => 0,
+  "Mojo::UserAgent" => 0,
   "Mojolicious" => 0,
   "Net::Launchpad" => 0,
   "Test::Mojo" => 0,
   "Test::More" => 0,
-  "Test::NoTabs" => 0
+  "Test::NoTabs" => 0,
+  "strict" => 0
 );
 
 
