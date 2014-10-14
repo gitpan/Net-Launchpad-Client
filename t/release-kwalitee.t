@@ -1,4 +1,3 @@
-#!perl
 
 BEGIN {
   unless ($ENV{RELEASE_TESTING}) {
@@ -7,13 +6,12 @@ BEGIN {
   }
 }
 
-
+# this test was generated with Dist::Zilla::Plugin::Test::Kwalitee 2.11
 use strict;
 use warnings;
+use Test::More 0.88;
+use Test::Kwalitee 1.21 'kwalitee_ok';
 
-use Test::More;
+kwalitee_ok();
 
-eval 'use Test::Portability::Files';
-plan skip_all => 'Test::Portability::Files required for testing portability'
-    if $@;
-run_tests();
+done_testing;

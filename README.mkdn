@@ -1,16 +1,12 @@
-=pod
-
-=encoding UTF-8
-
-=head1 NAME
+# NAME
 
 Net::Launchpad::Client - Launchpad.net Client
 
-=head1 VERSION
+# VERSION
 
-version 0.99
+version 1.03
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     use Net::Launchpad::Client;
     my $lp = Net::Launchpad::Client->new(
@@ -19,70 +15,76 @@ version 0.99
         consumer_key        => 'a-named-key'
     );
 
-=head1 ATTRIBUTES
+# ATTRIBUTES
 
-=head2 json
+## json
 
 json object
 
-=head2 consumer_key
+## consumer\_key
 
 OAuth Consumer key
 
-=head2 access_token
+## access\_token
 
 OAuth access token
 
-=head2 access_token_secret
+## access\_token\_secret
 
-OAuth access_token_secret
+OAuth access\_token\_secret
 
-=head2 ua
+## ua
 
 useragent
 
-=head2 staging
+## staging
 
 Staging or Production boolean
 
-=head2 nonce
+## nonce
 
 Nonce
 
-=head2 authorization_header
+## authorization\_header
 
-Authorization string as described at L<https://help.launchpad.net/API/SigningRequests> B<Using the credentials>
+Authorization string as described at [https://help.launchpad.net/API/SigningRequests](https://help.launchpad.net/API/SigningRequests) **Using the credentials**
 
-=head1 METHODS
+# METHODS
 
-=head2 __path_cons
+## \_\_path\_cons
 
 (Private) Returns either full resource link or combined path depending on the query.
 
-=head2 api_url
+## api\_url
 
 Launchpad API host
 
-=head2 get
+## get
 
 Performs a HTTP GET request for a particular resource.
 
-=head2 post
+## post
 
 Performs a HTTP POST request for a resource.
 
-=head1 AUTHOR
+# AUTHOR
 
 Adam Stokes <adamjs@cpan.org>
 
-=head1 COPYRIGHT AND LICENSE
+# COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2014 by Adam Stokes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=head1 DISCLAIMER OF WARRANTY
+# SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+- [https://api.launchpad.net](https://api.launchpad.net)
+
+# DISCLAIMER OF WARRANTY
 
 BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
 FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT
@@ -104,7 +106,3 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
 DAMAGES.
-
-
-=cut
-

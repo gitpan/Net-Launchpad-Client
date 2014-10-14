@@ -1,6 +1,6 @@
 package Net::Launchpad::Client;
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '1.00';
+$Net::Launchpad::Client::VERSION = '1.03';
 
 use Mojo::Base -base;
 use Mojo::JSON;
@@ -108,7 +108,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 1.00
+version 1.03
 
 =head1 SYNOPSIS
 
@@ -181,6 +181,18 @@ This software is copyright (c) 2014 by Adam Stokes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<https://api.launchpad.net>
+
+=back
 
 =head1 DISCLAIMER OF WARRANTY
 

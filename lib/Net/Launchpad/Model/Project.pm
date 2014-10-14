@@ -1,6 +1,6 @@
 package Net::Launchpad::Model::Project;
 # ABSTRACT: Project Model interface
-$Net::Launchpad::Model::Project::VERSION = '1.00';
+$Net::Launchpad::Model::Project::VERSION = '1.03';
 
 use Mojo::Base 'Net::Launchpad::Client';
 
@@ -81,7 +81,7 @@ Net::Launchpad::Model::Project - Project Model interface
 
 =head1 VERSION
 
-version 1.00
+version 1.03
 
 =head1 SYNOPSIS
 
@@ -115,14 +115,6 @@ Query a project by name
 
 Link to bug supervisor
 
-=head1 SEE ALSO
-
-=over 4
-
-=item * L<https://launchpad.net/launchpadlib>, "Python implementation"
-
-=back
-
 =head1 AUTHOR
 
 Adam Stokes <adamjs@cpan.org>
@@ -133,6 +125,18 @@ This software is copyright (c) 2014 by Adam Stokes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Net::Launchpad::Client|Net::Launchpad::Client>
+
+=back
 
 =head1 DISCLAIMER OF WARRANTY
 
