@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Person::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Person model
-$Net::Launchpad::Model::Person::VERSION = '1.1.01';
+$Net::Launchpad::Model::Person::VERSION = '1.2.0';
 
 use Moose;
 use namespace::autoclean;
@@ -24,7 +24,7 @@ Net::Launchpad::Model::Person - Person model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 SYNOPSIS
 
@@ -37,9 +37,7 @@ version 1.1.01
 
     my $person = $c->person('~adam-stokes');
 
-    print "Name: ". $person->{name};
-
-=head1 DESCRIPTION
+    print "Name: ". $person->result->{name};
 
 =head1 AUTHOR
 

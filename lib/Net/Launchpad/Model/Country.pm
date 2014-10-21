@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Country::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Country model
-$Net::Launchpad::Model::Country::VERSION = '1.1.01';
+$Net::Launchpad::Model::Country::VERSION = '1.2.0';
 
 use Moose;
 use namespace::autoclean;
@@ -24,7 +24,20 @@ Net::Launchpad::Model::Country - Country model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
+
+=head1 SYNOPSIS
+
+    use Net::Launchpad::Client;
+    my $c = Net::Launchpad::Client->new(
+        consumer_key        => 'key',
+        access_token        => '3243232',
+        access_token_secret => '432432432'
+    );
+
+    my $country = $c->country('US');
+
+    print "Name: ". $country->result->{name};
 
 =head1 DESCRIPTION
 

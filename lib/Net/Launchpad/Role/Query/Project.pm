@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Query::Project;
 BEGIN {
   $Net::Launchpad::Role::Query::Project::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Query::Project::VERSION = '1.1.01';
+$Net::Launchpad::Role::Query::Project::VERSION = '1.2.0';
 # ABSTRACT: Project query role
 
 use Moose::Role;
@@ -42,7 +42,7 @@ Net::Launchpad::Role::Query::Project - Project query role
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 METHODS
 

@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Bug::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Bug Model
-$Net::Launchpad::Model::Bug::VERSION = '1.1.01';
+$Net::Launchpad::Model::Bug::VERSION = '1.2.0';
 
 use Moose;
 use namespace::autoclean;
@@ -25,12 +25,11 @@ Net::Launchpad::Model::Bug - Bug Model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 SYNOPSIS
 
     use Net::Launchpad::Client;
-    use Net::Launchpad::Model::Bug;
     my $c = Net::Launchpad::Client->new(
         consumer_key        => 'key',
         access_token        => '3243232',
@@ -39,9 +38,9 @@ version 1.1.01
 
     my $bug = $c->bug(3)
 
-    print "Title: ". $bug->{title};
-    print "Desc:  ". $bug->{description};
-    print "Heat:  ". $bug->{heat};
+    print "Title: ". $bug->result->{title};
+    print "Desc:  ". $bug->result->{description};
+    print "Heat:  ". $bug->result->{heat};
 
 =head1 AUTHOR
 

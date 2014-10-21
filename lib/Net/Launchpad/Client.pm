@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Client::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '1.1.01';
+$Net::Launchpad::Client::VERSION = '1.2.0';
 
 use Moose;
 use Function::Parameters;
@@ -114,7 +114,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 SYNOPSIS
 

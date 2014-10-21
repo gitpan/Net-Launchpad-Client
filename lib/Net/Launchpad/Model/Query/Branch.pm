@@ -2,8 +2,10 @@ package Net::Launchpad::Model::Query::Branch;
 BEGIN {
   $Net::Launchpad::Model::Query::Branch::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Branch::VERSION = '1.1.01';
+$Net::Launchpad::Model::Query::Branch::VERSION = '1.2.0';
 # ABSTRACT: Branch query model
+
+
 
 use Moose;
 use Function::Parameters;
@@ -28,7 +30,22 @@ Net::Launchpad::Model::Query::Branch - Branch query model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
+
+=head1 SYNOPSIS
+
+    use Net::Launchpad::Client;
+    use Net::Launchpad::Query;
+    my $c = Net::Launchpad::Client->new(
+        consumer_key        => 'key',
+        access_token        => '3243232',
+        access_token_secret => '432432432'
+    );
+
+    my $query = Net::Launchpad::Query->new(lpc => $c);
+    my $res = $query->branches->get_by_unique_name('~adam-stokes/+junk/cloud-installer');
+
+    print "Name: ". $res->result->{unique_name};
 
 =head1 AUTHOR
 

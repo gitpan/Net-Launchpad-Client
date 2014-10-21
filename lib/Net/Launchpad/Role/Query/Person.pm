@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Query::Person;
 BEGIN {
   $Net::Launchpad::Role::Query::Person::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Query::Person::VERSION = '1.1.01';
+$Net::Launchpad::Role::Query::Person::VERSION = '1.2.0';
 # ABSTRACT: Person/People query role
 
 use Moose::Role;
@@ -63,7 +63,7 @@ Net::Launchpad::Role::Query::Person - Person/People query role
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 METHODS
 

@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Query::Branch;
 BEGIN {
   $Net::Launchpad::Role::Query::Branch::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Query::Branch::VERSION = '1.1.01';
+$Net::Launchpad::Role::Query::Branch::VERSION = '1.2.0';
 # ABSTRACT: Branch query role
 
 use Moose::Role;
@@ -53,7 +53,7 @@ Net::Launchpad::Role::Query::Branch - Branch query role
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 METHODS
 

@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Archive;
 BEGIN {
   $Net::Launchpad::Role::Archive::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Archive::VERSION = '1.1.01';
+$Net::Launchpad::Role::Archive::VERSION = '1.2.0';
 # ABSTRACT: Archive roles
 
 use Moose::Role;
@@ -24,7 +24,7 @@ Net::Launchpad::Role::Archive - Archive roles
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 AUTHOR
 

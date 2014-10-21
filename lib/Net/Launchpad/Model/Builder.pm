@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Builder;
 BEGIN {
   $Net::Launchpad::Model::Builder::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Builder::VERSION = '1.1.01';
+$Net::Launchpad::Model::Builder::VERSION = '1.2.0';
 # ABSTRACT: Builder Model
 
 
@@ -26,7 +26,20 @@ Net::Launchpad::Model::Builder - Builder Model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
+
+=head1 SYNOPSIS
+
+    use Net::Launchpad::Client;
+    my $c = Net::Launchpad::Client->new(
+        consumer_key        => 'key',
+        access_token        => '3243232',
+        access_token_secret => '432432432'
+    );
+
+    my $builder = $c->builder('batsu');
+
+    print "Name: ". $builder->result->{name};
 
 =head1 DESCRIPTION
 

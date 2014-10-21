@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Project::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Project Model interface
-$Net::Launchpad::Model::Project::VERSION = '1.1.01';
+$Net::Launchpad::Model::Project::VERSION = '1.2.0';
 use Moose;
 use namespace::autoclean;
 
@@ -24,7 +24,7 @@ Net::Launchpad::Model::Project - Project Model interface
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
 
 =head1 SYNOPSIS
 
@@ -37,25 +37,9 @@ version 1.1.01
 
     my $project = $c->project('sosreport');
 
-    print "Name: ". $project->{name};
+    print "Name: ". $project->result->{name};
 
 =head1 DESCRIPTION
-
-=head1 ATTRIBUTES
-
-=head2 project
-
-Holds project object.
-
-=head1 METHODS
-
-=head2 by_name
-
-Query a project by name
-
-=head2 owner
-
-Return owner of project
 
 =head1 AUTHOR
 

@@ -2,8 +2,9 @@ package Net::Launchpad::Model::Query::Builder;
 BEGIN {
   $Net::Launchpad::Model::Query::Builder::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Builder::VERSION = '1.1.01';
+$Net::Launchpad::Model::Query::Builder::VERSION = '1.2.0';
 # ABSTRACT: Builder query model
+
 
 use Moose;
 use Function::Parameters;
@@ -29,7 +30,22 @@ Net::Launchpad::Model::Query::Builder - Builder query model
 
 =head1 VERSION
 
-version 1.1.01
+version 1.2.0
+
+=head1 SYNOPSIS
+
+    use Net::Launchpad::Client;
+    use Net::Launchpad::Query;
+    my $c = Net::Launchpad::Client->new(
+        consumer_key        => 'key',
+        access_token        => '3243232',
+        access_token_secret => '432432432'
+    );
+
+    my $query = Net::Launchpad::Query->new(lpc => $c);
+    my $res = $query->builders->all;
+
+    print "Num of Available Builders: ". $res->result->{total_size};
 
 =head1 AUTHOR
 
