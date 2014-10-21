@@ -4,7 +4,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.046
 
-use Test::More  tests => 30 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 38 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -24,10 +24,13 @@ my @module_files = (
     'Net/Launchpad/Model/Person.pm',
     'Net/Launchpad/Model/Project.pm',
     'Net/Launchpad/Model/Query/Branch.pm',
+    'Net/Launchpad/Model/Query/Builder.pm',
+    'Net/Launchpad/Model/Query/Country.pm',
+    'Net/Launchpad/Model/Query/Person.pm',
+    'Net/Launchpad/Model/Query/Project.pm',
     'Net/Launchpad/Query.pm',
     'Net/Launchpad/Role/Archive.pm',
     'Net/Launchpad/Role/Branch.pm',
-    'Net/Launchpad/Role/Branch/Query.pm',
     'Net/Launchpad/Role/Bug.pm',
     'Net/Launchpad/Role/BugTracker.pm',
     'Net/Launchpad/Role/Builder.pm',
@@ -38,7 +41,12 @@ my @module_files = (
     'Net/Launchpad/Role/Language.pm',
     'Net/Launchpad/Role/Person.pm',
     'Net/Launchpad/Role/Project.pm',
-    'Net/Launchpad/Role/Query.pm'
+    'Net/Launchpad/Role/Query.pm',
+    'Net/Launchpad/Role/Query/Branch.pm',
+    'Net/Launchpad/Role/Query/Builder.pm',
+    'Net/Launchpad/Role/Query/Country.pm',
+    'Net/Launchpad/Role/Query/Person.pm',
+    'Net/Launchpad/Role/Query/Project.pm'
 );
 
 

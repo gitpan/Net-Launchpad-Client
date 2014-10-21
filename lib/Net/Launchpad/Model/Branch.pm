@@ -1,6 +1,9 @@
 package Net::Launchpad::Model::Branch;
+BEGIN {
+  $Net::Launchpad::Model::Branch::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: Branch Model
-$Net::Launchpad::Model::Branch::VERSION = '1.1.0_1';
+$Net::Launchpad::Model::Branch::VERSION = '1.1.01';
 use Moose;
 use namespace::autoclean;
 
@@ -21,7 +24,7 @@ Net::Launchpad::Model::Branch - Branch Model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

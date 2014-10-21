@@ -1,42 +1,19 @@
-package Net::Launchpad::Role::Branch::Query;
-$Net::Launchpad::Role::Branch::Query::VERSION = '1.1.0_1';
-# ABSTRACT: Branch query role
+package Net::Launchpad::Model::Query::Country;
+BEGIN {
+  $Net::Launchpad::Model::Query::Country::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::Query::Country::VERSION = '1.1.01';
+# ABSTRACT: Country query model
 
-use Moose::Role;
+use Moose;
 use Function::Parameters;
+use namespace::autoclean;
 
-with 'Net::Launchpad::Role::Query';
+extends 'Net::Launchpad::Model::Base';
 
-has _path => (is => 'ro', default => 'branches');
+has '+ns' => (is => 'ro', default => 'countries');
 
-method __get ($params) {
-    return $self->resource($self->_path, $params);
-}
-
-method get_by_unique_name (Str $name) {
-    my $params = {
-        'ws.op'     => 'getByUniqueName',
-        unique_name => $name
-    };
-    return $self->__get($params);
-}
-
-method get_by_url (Str $url) {
-    my $params = {
-        'ws.op' => 'getByUrl',
-        url     => $url
-    };
-    return $self->__get($params);
-}
-
-method get_by_urls (ArrayRef $urls) {
-    my $params = {
-        'ws.op' => 'getByUrls',
-        urls    => join(',', @{$urls})
-    };
-    return $self->__get($params);
-}
-
+__PACKAGE__->meta->make_immutable;
 
 1;
 
@@ -48,11 +25,11 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Role::Branch::Query - Branch query role
+Net::Launchpad::Model::Query::Country - Country query model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

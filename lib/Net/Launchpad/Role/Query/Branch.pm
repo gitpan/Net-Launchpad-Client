@@ -1,15 +1,44 @@
-package Net::Launchpad::Model::Archive;
+package Net::Launchpad::Role::Query::Branch;
 BEGIN {
-  $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Role::Query::Branch::AUTHORITY = 'cpan:ADAMJS';
 }
-# ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.1.01';
-use Moose;
-use namespace::autoclean;
+$Net::Launchpad::Role::Query::Branch::VERSION = '1.1.01';
+# ABSTRACT: Branch query role
 
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
+use Data::Dumper::Concise;
 
-__PACKAGE__->meta->make_immutable;
+with 'Net::Launchpad::Role::Query';
+
+
+method get_by_unique_name (Str $name) {
+    my $params = {
+        'ws.op'     => 'getByUniqueName',
+        unique_name => $name
+    };
+    return $self->resource($params);
+}
+
+
+method get_by_url (Str $url) {
+    my $params = {
+        'ws.op' => 'getByUrl',
+        url     => $url
+    };
+    return $self->resource($params);
+}
+
+
+method get_by_urls (ArrayRef $urls) {
+    my $params = {
+        'ws.op' => 'getByUrls',
+        urls    => join(',', @{$urls})
+    };
+    return $self->resource($params);
+}
+
+
 1;
 
 __END__
@@ -20,11 +49,61 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::Archive - Archive Model
+Net::Launchpad::Role::Query::Branch - Branch query role
 
 =head1 VERSION
 
 version 1.1.01
+
+=head1 METHODS
+
+=head2 get_by_unique_name
+
+Find a branch by its ~owner/product/name unique name.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str name>
+
+=back
+
+=head2 get_by_url
+
+Find a branch by URL.
+
+Either from the external specified in Branch.url, from the URL on
+http://bazaar.launchpad.net/ or the lp: URL.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str url>
+
+=back
+
+=head2 get_by_urls
+
+Finds branches by URL.
+
+Either from the external specified in Branch.url, from the URL on
+http://bazaar.launchpad.net/, or from the lp: URL.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<ArrayRef urls>
+
+=back
 
 =head1 AUTHOR
 

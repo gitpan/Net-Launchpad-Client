@@ -24,10 +24,13 @@ lib/Net/Launchpad/Model/Language.pm
 lib/Net/Launchpad/Model/Person.pm
 lib/Net/Launchpad/Model/Project.pm
 lib/Net/Launchpad/Model/Query/Branch.pm
+lib/Net/Launchpad/Model/Query/Builder.pm
+lib/Net/Launchpad/Model/Query/Country.pm
+lib/Net/Launchpad/Model/Query/Person.pm
+lib/Net/Launchpad/Model/Query/Project.pm
 lib/Net/Launchpad/Query.pm
 lib/Net/Launchpad/Role/Archive.pm
 lib/Net/Launchpad/Role/Branch.pm
-lib/Net/Launchpad/Role/Branch/Query.pm
 lib/Net/Launchpad/Role/Bug.pm
 lib/Net/Launchpad/Role/BugTracker.pm
 lib/Net/Launchpad/Role/Builder.pm
@@ -39,6 +42,11 @@ lib/Net/Launchpad/Role/Language.pm
 lib/Net/Launchpad/Role/Person.pm
 lib/Net/Launchpad/Role/Project.pm
 lib/Net/Launchpad/Role/Query.pm
+lib/Net/Launchpad/Role/Query/Branch.pm
+lib/Net/Launchpad/Role/Query/Builder.pm
+lib/Net/Launchpad/Role/Query/Country.pm
+lib/Net/Launchpad/Role/Query/Person.pm
+lib/Net/Launchpad/Role/Query/Project.pm
 t/00-compile.t
 t/00-report-prereqs.dd
 t/00-report-prereqs.t
@@ -47,6 +55,8 @@ t/02-bugs.t
 t/03-people.t
 t/04-projects.t
 t/05-branches.t
+t/06-country.t
+t/07-builder.t
 t/author-no-tabs.t
 t/release-kwalitee.t
 t/release-minimum-version.t

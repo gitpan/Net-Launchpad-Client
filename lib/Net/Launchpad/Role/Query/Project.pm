@@ -1,15 +1,33 @@
-package Net::Launchpad::Model::Archive;
+package Net::Launchpad::Role::Query::Project;
 BEGIN {
-  $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Role::Query::Project::AUTHORITY = 'cpan:ADAMJS';
 }
-# ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.1.01';
-use Moose;
-use namespace::autoclean;
+$Net::Launchpad::Role::Query::Project::VERSION = '1.1.01';
+# ABSTRACT: Project query role
 
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
+use Data::Dumper::Concise;
 
-__PACKAGE__->meta->make_immutable;
+with 'Net::Launchpad::Role::Query';
+
+
+method search (Str $text) {
+    my $params = {
+        'ws.op' => 'search',
+        text    => $text
+    };
+    return $self->resource($params);
+}
+
+
+method latest {
+    my $params = {
+        'ws.op' => 'latest'
+    };
+    return $self->resource($params);
+}
+
 1;
 
 __END__
@@ -20,11 +38,33 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::Archive - Archive Model
+Net::Launchpad::Role::Query::Project - Project query role
 
 =head1 VERSION
 
 version 1.1.01
+
+=head1 METHODS
+
+=head2 search
+
+Search through the Registry database for products that match the query
+terms. text is a piece of text in the title / summary / description
+fields of product.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str text>
+
+=back
+
+=head2 latest
+
+Return latest registered projects
 
 =head1 AUTHOR
 

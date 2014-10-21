@@ -1,6 +1,9 @@
 package Net::Launchpad::Model::Project;
+BEGIN {
+  $Net::Launchpad::Model::Project::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: Project Model interface
-$Net::Launchpad::Model::Project::VERSION = '1.1.0_1';
+$Net::Launchpad::Model::Project::VERSION = '1.1.01';
 use Moose;
 use namespace::autoclean;
 
@@ -21,7 +24,7 @@ Net::Launchpad::Model::Project - Project Model interface
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 SYNOPSIS
 

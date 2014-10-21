@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::CVE;
-$Net::Launchpad::Role::CVE::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::CVE::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::CVE::VERSION = '1.1.01';
 # ABSTRACT: CVE roles
 
 use Moose::Role;
@@ -21,7 +24,7 @@ Net::Launchpad::Role::CVE - CVE roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

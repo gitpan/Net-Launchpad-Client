@@ -1,15 +1,29 @@
-package Net::Launchpad::Model::Archive;
+package Net::Launchpad::Role::Query::Builder;
 BEGIN {
-  $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Role::Query::Builder::AUTHORITY = 'cpan:ADAMJS';
 }
-# ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.1.01';
-use Moose;
-use namespace::autoclean;
+$Net::Launchpad::Role::Query::Builder::VERSION = '1.1.01';
+# ABSTRACT: Builder query role
 
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
+use Data::Dumper::Concise;
 
-__PACKAGE__->meta->make_immutable;
+with 'Net::Launchpad::Role::Query';
+
+method all {
+  return $self->resource({});
+}
+
+
+method get_by_name (Str $name) {
+    my $params = {
+        'ws.op' => 'getByName',
+        name    => $name
+    };
+    return $self->resource($params);
+}
+
 1;
 
 __END__
@@ -20,11 +34,31 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::Archive - Archive Model
+Net::Launchpad::Role::Query::Builder - Builder query role
 
 =head1 VERSION
 
 version 1.1.01
+
+=head1 METHODS
+
+=head2 all
+
+Get all builders
+
+=head2 get_by_name
+
+Return a builder by name
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str name>
+
+=back
 
 =head1 AUTHOR
 

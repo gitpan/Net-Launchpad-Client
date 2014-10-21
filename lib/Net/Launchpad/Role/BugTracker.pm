@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::BugTracker;
-$Net::Launchpad::Role::BugTracker::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::BugTracker::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::BugTracker::VERSION = '1.1.01';
 # ABSTRACT: Bug tracker roles
 
 use Moose::Role;
@@ -26,7 +29,7 @@ Net::Launchpad::Role::BugTracker - Bug tracker roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 METHODS
 

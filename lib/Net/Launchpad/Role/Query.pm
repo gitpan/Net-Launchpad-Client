@@ -1,21 +1,31 @@
 package Net::Launchpad::Role::Query;
-$Net::Launchpad::Role::Query::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::Query::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::Query::VERSION = '1.1.01';
 # ABSTRACT: Common pure query roles
 
 use Moose::Role;
 use Function::Parameters;
+use Data::Dumper::Concise;
 use Mojo::Parameters;
+
+has result => (is => 'rw');
+
+
+has ns => (is => 'rw');
 
 
 method _build_resource_path ($search_name, $params) {
-    $params = Mojo::Parameters->new($params);
-    return sprintf("%s?%s", $search_name, $params->to_string);
+    my $uri = $self->lpc->__path_cons($search_name);
+    return $uri->query($params);
 }
 
 
-method resource ($path, $params) {
-    my $uri = $self->_build_resource_path($path, $params);
-    return $self->lpc->get($uri);
+method resource ($params) {
+    my $uri = $self->_build_resource_path($self->ns, $params);
+    $self->result($self->lpc->get($uri->to_string));
+    return $self;
 }
 
 1;
@@ -32,7 +42,13 @@ Net::Launchpad::Role::Query - Common pure query roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
+
+=head1 ATTRIBUTES
+
+=head2 ns
+
+Namespace to query for, ie ('bugs'), is overridden in query roles.
 
 =head1 METHODS
 

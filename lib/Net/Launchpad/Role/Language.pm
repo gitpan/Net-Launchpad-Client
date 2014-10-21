@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::Language;
-$Net::Launchpad::Role::Language::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::Language::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::Language::VERSION = '1.1.01';
 # ABSTRACT: Language roles
 
 use Moose::Role;
@@ -22,7 +25,7 @@ Net::Launchpad::Role::Language - Language roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

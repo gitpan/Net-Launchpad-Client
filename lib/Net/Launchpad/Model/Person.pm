@@ -1,6 +1,9 @@
 package Net::Launchpad::Model::Person;
+BEGIN {
+  $Net::Launchpad::Model::Person::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: Person model
-$Net::Launchpad::Model::Person::VERSION = '1.1.0_1';
+$Net::Launchpad::Model::Person::VERSION = '1.1.01';
 
 use Moose;
 use namespace::autoclean;
@@ -21,7 +24,7 @@ Net::Launchpad::Model::Person - Person model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 SYNOPSIS
 

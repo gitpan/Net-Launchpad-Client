@@ -1,15 +1,20 @@
-package Net::Launchpad::Model::Archive;
+package Net::Launchpad::Model::Query::Builder;
 BEGIN {
-  $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Model::Query::Builder::AUTHORITY = 'cpan:ADAMJS';
 }
-# ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.1.01';
+$Net::Launchpad::Model::Query::Builder::VERSION = '1.1.01';
+# ABSTRACT: Builder query model
+
 use Moose;
+use Function::Parameters;
 use namespace::autoclean;
 
 extends 'Net::Launchpad::Model::Base';
 
+has '+ns' => (is => 'ro', default => 'builders');
+
 __PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__
@@ -20,7 +25,7 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::Archive - Archive Model
+Net::Launchpad::Model::Query::Builder - Builder query model
 
 =head1 VERSION
 

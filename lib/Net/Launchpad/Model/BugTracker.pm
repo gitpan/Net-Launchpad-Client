@@ -1,5 +1,8 @@
 package Net::Launchpad::Model::BugTracker;
-$Net::Launchpad::Model::BugTracker::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Model::BugTracker::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::BugTracker::VERSION = '1.1.01';
 # ABSTRACT: BugTracker Model
 
 use Moose;
@@ -22,7 +25,7 @@ Net::Launchpad::Model::BugTracker - BugTracker Model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

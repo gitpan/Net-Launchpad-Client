@@ -1,5 +1,8 @@
 package Net::Launchpad::Model::Base;
-$Net::Launchpad::Model::Base::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Model::Base::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::Base::VERSION = '1.1.01';
 # ABSTRACT: base class
 
 use Moose;
@@ -7,10 +10,12 @@ use namespace::autoclean;
 use Function::Parameters;
 
 
-has result => (is => 'ro', isa => 'HashRef');
+has result => (is => 'rw', isa => 'HashRef');
 
 
 has lpc => (is => 'ro', isa => 'Net::Launchpad::Client');
+
+has ns => (is => 'rw');
 
 __PACKAGE__->meta->make_immutable;
 1;
@@ -27,7 +32,7 @@ Net::Launchpad::Model::Base - base class
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 ATTRIBUTES
 
@@ -38,6 +43,10 @@ Result of query
 =head2 lpc
 
 L<Net::Launchpad::Client>
+
+=head2 ns
+
+Namespace for search queries against collections
 
 =head1 AUTHOR
 

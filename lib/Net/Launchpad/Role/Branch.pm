@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::Branch;
-$Net::Launchpad::Role::Branch::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::Branch::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::Branch::VERSION = '1.1.01';
 # ABSTRACT: Branch Roles
 
 use Moose::Role;
@@ -56,7 +59,7 @@ Net::Launchpad::Role::Branch - Branch Roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 METHODS
 

@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::Country;
-$Net::Launchpad::Role::Country::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::Country::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::Country::VERSION = '1.1.01';
 # ABSTRACT: Country roles
 
 use Moose::Role;
@@ -21,7 +24,7 @@ Net::Launchpad::Role::Country - Country roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

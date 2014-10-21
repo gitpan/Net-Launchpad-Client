@@ -1,6 +1,9 @@
 package Net::Launchpad::Model::Country;
+BEGIN {
+  $Net::Launchpad::Model::Country::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: Country model
-$Net::Launchpad::Model::Country::VERSION = '1.1.0_1';
+$Net::Launchpad::Model::Country::VERSION = '1.1.01';
 
 use Moose;
 use namespace::autoclean;
@@ -21,7 +24,7 @@ Net::Launchpad::Model::Country - Country model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 DESCRIPTION
 

@@ -1,6 +1,9 @@
 package Net::Launchpad::Client;
+BEGIN {
+  $Net::Launchpad::Client::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '1.1.0_1';
+$Net::Launchpad::Client::VERSION = '1.1.01';
 
 use Moose;
 use Function::Parameters;
@@ -111,7 +114,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 SYNOPSIS
 

@@ -1,5 +1,8 @@
 package Net::Launchpad::Model::Distribution;
-$Net::Launchpad::Model::Distribution::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Model::Distribution::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::Distribution::VERSION = '1.1.01';
 # ABSTRACT: Distribution Model
 
 use Moose;
@@ -22,7 +25,7 @@ Net::Launchpad::Model::Distribution - Distribution Model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

@@ -1,6 +1,9 @@
 package Net::Launchpad::Model::CVE;
+BEGIN {
+  $Net::Launchpad::Model::CVE::AUTHORITY = 'cpan:ADAMJS';
+}
 # ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+$Net::Launchpad::Model::CVE::VERSION = '1.1.01';
 
 use Moose;
 use namespace::autoclean;
@@ -21,7 +24,7 @@ Net::Launchpad::Model::CVE - CVE Model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 SYNOPSIS
 

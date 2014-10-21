@@ -1,5 +1,8 @@
 package Net::Launchpad::Model::Query::Branch;
-$Net::Launchpad::Model::Query::Branch::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Model::Query::Branch::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::Query::Branch::VERSION = '1.1.01';
 # ABSTRACT: Branch query model
 
 use Moose;
@@ -7,6 +10,8 @@ use Function::Parameters;
 use namespace::autoclean;
 
 extends 'Net::Launchpad::Model::Base';
+
+has '+ns' => (is => 'ro', default => 'branches');
 
 __PACKAGE__->meta->make_immutable;
 1;
@@ -23,7 +28,7 @@ Net::Launchpad::Model::Query::Branch - Branch query model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

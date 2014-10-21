@@ -1,15 +1,35 @@
-package Net::Launchpad::Model::Archive;
+package Net::Launchpad::Role::Query::Country;
 BEGIN {
-  $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Role::Query::Country::AUTHORITY = 'cpan:ADAMJS';
 }
-# ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.1.01';
-use Moose;
-use namespace::autoclean;
+$Net::Launchpad::Role::Query::Country::VERSION = '1.1.01';
+# ABSTRACT: Person/People query role
 
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
+use Data::Dumper::Concise;
 
-__PACKAGE__->meta->make_immutable;
+with 'Net::Launchpad::Role::Query';
+
+
+method get_by_code (Str $code) {
+    my $params = {
+        'ws.op' => 'getByCode',
+        code    => $code
+    };
+    return $self->resource($params);
+}
+
+
+
+method get_by_name (Str $name) {
+    my $params = {
+        'ws.op' => 'getByName',
+        name    => $name
+    };
+    return $self->resource($params);
+}
+
 1;
 
 __END__
@@ -20,11 +40,41 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::Archive - Archive Model
+Net::Launchpad::Role::Query::Country - Person/People query role
 
 =head1 VERSION
 
 version 1.1.01
+
+=head1 METHODS
+
+=head2 get_by_code
+
+Return a country by its code
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str code>
+
+=back
+
+=head2 get_by_name
+
+Return country by its name
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str name>
+
+=back
 
 =head1 AUTHOR
 

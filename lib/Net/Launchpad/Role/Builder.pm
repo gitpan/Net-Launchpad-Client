@@ -1,5 +1,8 @@
 package Net::Launchpad::Role::Builder;
-$Net::Launchpad::Role::Builder::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Role::Builder::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Role::Builder::VERSION = '1.1.01';
 # ABSTRACT: Builder roles
 
 use Moose::Role;
@@ -21,7 +24,7 @@ Net::Launchpad::Role::Builder - Builder roles
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 AUTHOR
 

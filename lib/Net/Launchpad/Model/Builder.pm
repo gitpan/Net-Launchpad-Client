@@ -1,5 +1,8 @@
 package Net::Launchpad::Model::Builder;
-$Net::Launchpad::Model::Builder::VERSION = '1.1.0_1';
+BEGIN {
+  $Net::Launchpad::Model::Builder::AUTHORITY = 'cpan:ADAMJS';
+}
+$Net::Launchpad::Model::Builder::VERSION = '1.1.01';
 # ABSTRACT: Builder Model
 
 
@@ -23,7 +26,7 @@ Net::Launchpad::Model::Builder - Builder Model
 
 =head1 VERSION
 
-version 1.1.0_1
+version 1.1.01
 
 =head1 DESCRIPTION
 

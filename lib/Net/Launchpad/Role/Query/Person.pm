@@ -1,29 +1,52 @@
-package Net::Launchpad::Role::Person;
+package Net::Launchpad::Role::Query::Person;
 BEGIN {
-  $Net::Launchpad::Role::Person::AUTHORITY = 'cpan:ADAMJS';
+  $Net::Launchpad::Role::Query::Person::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Person::VERSION = '1.1.01';
+$Net::Launchpad::Role::Query::Person::VERSION = '1.1.01';
+# ABSTRACT: Person/People query role
+
 use Moose::Role;
 use Function::Parameters;
+use Data::Dumper::Concise;
 
-with 'Net::Launchpad::Role::Common';
+with 'Net::Launchpad::Role::Query';
 
-# ABSTRACT: Person roles
 
-method gpg_keys {
-    return $self->collection('gpg_keys');
+method find (Str $text) {
+    my $params = {
+        'ws.op' => 'find',
+        text    => $text
+    };
+    return $self->resource($params);
 }
 
-method irc_nicks {
-    return $self->collection('irc_nicknames');
+
+
+method find_person (Str $text, Str $created_after = undef, Str $created_before = undef) {
+    my $params = {
+        'ws.op' => 'findPerson',
+        text    => $text
+    };
+    return $self->resource($params);
 }
 
-method ppas {
-    return $self->collection('ppas');
+
+method find_team (Str $text) {
+    my $params = {
+        'ws.op' => 'findTeam',
+        text => $text
+    };
+    return $self->resource($params);
 }
 
-method ssh_keys {
-    return $self->collection('sshkeys');
+
+
+method get_by_email (Str $email) {
+    my $params = {
+        'ws.op' => 'getByEmail',
+        email   => $email
+    };
+    return $self->resource($params);
 }
 
 1;
@@ -36,7 +59,7 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Role::Person - Person roles
+Net::Launchpad::Role::Query::Person - Person/People query role
 
 =head1 VERSION
 
@@ -44,21 +67,73 @@ version 1.1.01
 
 =head1 METHODS
 
-=head2 gpg_keys
+=head2 find
 
-Returns list a gpg keys registered
+Return all non-merged Persons and Teams whose name, displayname or email address match C<text>.
 
-=head2 irc_nicks
+Note: C<Text matching is performed only against the beginning of an email address.>
 
-Returns list of irc nicks
+B<Params>
 
-=head2 ppas
+=over 4
 
-Returns list of ppas associated
+=item *
 
-=head2 ssh_keys
+C<Str text>
 
-Returns list of public ssh keys
+=back
+
+=head2 find_person
+
+Return all non-merged Persons with at least one email address whose name, displayname or email address match C<text>.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str text>
+
+=item *
+
+C<Str created_before>
+
+=item *
+
+C<Str created_after>
+
+=back
+
+=head2 find_team
+
+Return all Teams whose name, displayname or email address match <text>.
+
+Note: C<Text matching is performed only against the beginning of an email address.>
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str text>
+
+=back
+
+=head2 get_by_email
+
+Return the person with the given email address.
+
+B<Params>
+
+=over 4
+
+=item *
+
+C<Str email>
+
+=back
 
 =head1 AUTHOR
 
