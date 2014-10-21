@@ -1,12 +1,23 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Role::Query;
+$Net::Launchpad::Role::Query::VERSION = '1.1.0_1';
+# ABSTRACT: Common pure query roles
 
-use Moose;
-use namespace::autoclean;
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
+use Mojo::Parameters;
 
-__PACKAGE__->meta->make_immutable;
+
+method _build_resource_path ($search_name, $params) {
+    $params = Mojo::Parameters->new($params);
+    return sprintf("%s?%s", $search_name, $params->to_string);
+}
+
+
+method resource ($path, $params) {
+    my $uri = $self->_build_resource_path($path, $params);
+    return $self->lpc->get($uri);
+}
+
 1;
 
 __END__
@@ -17,35 +28,21 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Role::Query - Common pure query roles
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
 =head1 METHODS
 
-=head2 by_sequence
+=head2 _build_resource_path
 
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
+Builds a resource path with params encoded
 
-=head2 bugs
+=head2 resource
 
-Returns a list of entries associated with cve
+Returns resource of C<name>
 
 =head1 AUTHOR
 

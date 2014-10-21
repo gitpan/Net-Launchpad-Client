@@ -1,6 +1,6 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Model::Country;
+# ABSTRACT: Country model
+$Net::Launchpad::Model::Country::VERSION = '1.1.0_1';
 
 use Moose;
 use namespace::autoclean;
@@ -17,35 +17,15 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Model::Country - Country model
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
+=head1 DESCRIPTION
 
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
-=head1 METHODS
-
-=head2 by_sequence
-
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
-
-=head2 bugs
-
-Returns a list of entries associated with cve
+Container for countries
 
 =head1 AUTHOR
 

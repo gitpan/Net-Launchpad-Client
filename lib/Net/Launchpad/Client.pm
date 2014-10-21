@@ -1,42 +1,53 @@
 package Net::Launchpad::Client;
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '1.03';
+$Net::Launchpad::Client::VERSION = '1.1.0_1';
 
-use Mojo::Base -base;
-use Mojo::JSON;
+use Moose;
+use Function::Parameters;
 use Mojo::UserAgent;
+use Mojo::URL;
+use Mojo::JSON qw(decode_json);
 use Mojo::Parameters;
-use Class::Load ':all';
+use namespace::autoclean;
 
-has 'consumer_key' => '';
-has 'access_token' => '';
-has 'access_token_secret' => '';
-has 'staging' => 0;
+has consumer_key        => (is => 'ro', isa => 'Str');
+has access_token        => (is => 'ro', isa => 'Str');
+has access_token_secret => (is => 'ro', isa => 'Str');
+has staging             => (is => 'ro', isa => 'Int', default => 0);
 
-has 'json' => sub {
-    my $self = shift;
-    return Mojo::JSON->new;
-};
-
-has 'ua' => sub {
-    my $self = shift;
-    my $ua   = Mojo::UserAgent->new;
-    $ua->transactor->name("Net::Launchpad/0.99");
-    return $ua;
-};
-
-has 'nonce' => sub {
-    my $self  = shift;
-    my @a     = ('A' .. 'Z', 'a' .. 'z', 0 .. 9);
-    my $nonce = '';
-    for (0 .. 31) {
-        $nonce .= $a[rand(scalar(@a))];
+has 'ua' => (
+    is      => 'ro',
+    isa     => 'Mojo::UserAgent',
+    default => method {
+        my $ua = Mojo::UserAgent->new;
+        $ua->transactor->name("Net::Launchpad");
+        return $ua;
     }
-    return $nonce;
-};
+);
 
-has 'authorization_header' => sub {
-    my $self = shift;
+has 'nonce' => (
+    is      => 'ro',
+    isa     => 'Str',
+    default => method {
+        my @a = ('A' .. 'Z', 'a' .. 'z', 0 .. 9);
+        my $nonce = '';
+        for (0 .. 31) {
+            $nonce .= $a[rand(scalar(@a))];
+        }
+        return $nonce;
+    }
+);
+
+has 'authorization_header' => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    builder => '_build_auth_header',
+    documentation =>
+      "Composed authorization string for accessing priveledged data"
+);
+
+method _build_auth_header {
     return join(",",
         'OAuth realm="https://api.launchpad.net"',
         'oauth_consumer_key=' . $self->consumer_key,
@@ -47,44 +58,22 @@ has 'authorization_header' => sub {
         'oauth_token_secret=' . $self->access_token_secret,
         'oauth_timestamp=' . time,
         'oauth_nonce=' . $self->nonce);
-};
-
-sub api_url {
-    my $self = shift;
-    if ($self->staging) {
-      return Mojo::URL->new('https://api.staging.launchpad.net/1.0/');
-    }
-    else {
-      return Mojo::URL->new('https://api.launchpad.net/1.0/');
-    }
 }
 
-sub model {
-    my ($self, $class) = @_;
-    my $model = "Net::Launchpad::Model::$class";
-    return load_class($model)->new($self);
+method api_url {
+    return Mojo::URL->new('https://api.launchpad.net/1.0/')
+      unless $self->staging;
+    return Mojo::URL->new('https://api.staging.launchpad.net/1.0/');
 }
 
-sub __path_cons {
-    my ($self, $path) = @_;
+method __path_cons($path) {
     if ($path =~ /^http.*api/) {
         return Mojo::URL->new($path);
     }
     return $self->api_url->path($path);
 }
 
-sub get {
-    my ($self, $resource) = @_;
-    my $uri = $self->__path_cons($resource);
-    my $tx =
-      $self->ua->get(
-        $uri->to_string => {'Authorization' => $self->authorization_header});
-    die $tx->res->body unless $tx->success;
-    return $self->json->decode($tx->res->body);
-}
-
-sub post {
-    my ($self, $resource, $params) = @_;
+method post (Str $resource, HashRef $params) {
     my $params_hash = Mojo::Parameters->new($params);
     my $uri         = $self->__path_cons($resource);
     my $tx =
@@ -94,6 +83,20 @@ sub post {
     die $tx->res->message unless $tx->success;
 }
 
+method get (Str $resource) {
+    my $uri = $self->__path_cons($resource);
+    my $tx =
+      $self->ua->get(
+        $uri->to_string => {'Authorization' => $self->authorization_header});
+    if ($tx->success) {
+      return decode_json($tx->res->body);
+    } else {
+      my $err = $tx->error;
+      die "$err->{code} response: $err->{message}" if $err->{code};
+    }
+}
+
+__PACKAGE__->meta->make_immutable;
 1;
 
 __END__
@@ -108,7 +111,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 1.03
+version 1.1.0_1
 
 =head1 SYNOPSIS
 
@@ -120,10 +123,6 @@ version 1.03
     );
 
 =head1 ATTRIBUTES
-
-=head2 json
-
-json object
 
 =head2 consumer_key
 
@@ -137,39 +136,9 @@ OAuth access token
 
 OAuth access_token_secret
 
-=head2 ua
-
-useragent
-
 =head2 staging
 
 Staging or Production boolean
-
-=head2 nonce
-
-Nonce
-
-=head2 authorization_header
-
-Authorization string as described at L<https://help.launchpad.net/API/SigningRequests> B<Using the credentials>
-
-=head1 METHODS
-
-=head2 __path_cons
-
-(Private) Returns either full resource link or combined path depending on the query.
-
-=head2 api_url
-
-Launchpad API host
-
-=head2 get
-
-Performs a HTTP GET request for a particular resource.
-
-=head2 post
-
-Performs a HTTP POST request for a resource.
 
 =head1 AUTHOR
 
@@ -181,18 +150,6 @@ This software is copyright (c) 2014 by Adam Stokes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-=head1 SEE ALSO
-
-Please see those modules/websites for more information related to this module.
-
-=over 4
-
-=item *
-
-L<https://api.launchpad.net>
-
-=back
 
 =head1 DISCLAIMER OF WARRANTY
 

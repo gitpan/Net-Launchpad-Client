@@ -13,11 +13,17 @@ do { my $x = {
                     },
        'runtime' => {
                       'requires' => {
-                                      'Class::Load' => '0',
-                                      'Mojo::Base' => '0',
+                                      'Data::Dumper::Concise' => '0',
+                                      'Function::Parameters' => '0',
+                                      'Module::Runtime' => '0',
                                       'Mojo::JSON' => '0',
                                       'Mojo::Parameters' => '0',
-                                      'Mojo::UserAgent' => '0'
+                                      'Mojo::URL' => '0',
+                                      'Mojo::UserAgent' => '0',
+                                      'Moose' => '0',
+                                      'Moose::Role' => '0',
+                                      'Moose::Util' => '0',
+                                      'namespace::autoclean' => '0'
                                     }
                     },
        'test' => {
@@ -25,18 +31,20 @@ do { my $x = {
                                      'CPAN::Meta' => '2.120900'
                                    },
                    'requires' => {
-                                   'Class::Load' => '0',
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
+                                   'FindBin' => '0',
                                    'IO::Handle' => '0',
                                    'IPC::Open3' => '0',
                                    'Mojolicious' => '0',
                                    'Net::Launchpad' => '0',
                                    'Test::Compile' => '0',
+                                   'Test::Exception' => '0',
                                    'Test::Kwalitee' => '0',
                                    'Test::Mojo' => '0',
                                    'Test::More' => '0',
                                    'Test::NoTabs' => '0',
+                                   'lib' => '0',
                                    'perl' => '5.006',
                                    'strict' => '0',
                                    'warnings' => '0'

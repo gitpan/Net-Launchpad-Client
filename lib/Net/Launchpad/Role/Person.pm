@@ -1,12 +1,28 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Role::Person;
+$Net::Launchpad::Role::Person::VERSION = '1.1.0_1';
+use Moose::Role;
+use Function::Parameters;
 
-use Moose;
-use namespace::autoclean;
-extends 'Net::Launchpad::Model::Base';
+with 'Net::Launchpad::Role::Common';
 
-__PACKAGE__->meta->make_immutable;
+# ABSTRACT: Person roles
+
+method gpg_keys {
+    return $self->collection('gpg_keys');
+}
+
+method irc_nicks {
+    return $self->collection('irc_nicknames');
+}
+
+method ppas {
+    return $self->collection('ppas');
+}
+
+method ssh_keys {
+    return $self->collection('sshkeys');
+}
+
 1;
 
 __END__
@@ -17,35 +33,29 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Role::Person - Person roles
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
 =head1 METHODS
 
-=head2 by_sequence
+=head2 gpg_keys
 
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
+Returns list a gpg keys registered
 
-=head2 bugs
+=head2 irc_nicks
 
-Returns a list of entries associated with cve
+Returns list of irc nicks
+
+=head2 ppas
+
+Returns list of ppas associated
+
+=head2 ssh_keys
+
+Returns list of public ssh keys
 
 =head1 AUTHOR
 

@@ -1,12 +1,47 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Role::Branch;
+$Net::Launchpad::Role::Branch::VERSION = '1.1.0_1';
+# ABSTRACT: Branch Roles
 
-use Moose;
-use namespace::autoclean;
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
 
-__PACKAGE__->meta->make_immutable;
+with 'Net::Launchpad::Role::Common';
+
+
+method dependent_branches {
+    return $self->collection('dependent_branches');
+}
+
+
+method landing_candidates {
+    return $self->collection('landing_candidates');
+}
+
+
+method landing_target {
+    return $self->collection('landing_targets');
+}
+
+method reviewer {
+    return $self->resource('reviewer');
+}
+
+
+method sourcepackage {
+  return $self->resource('sourcepackage');
+}
+
+method subscribers {
+  return $self->collection('subscribers');
+}
+
+method subscriptions {
+  return $self->collection('subscriptions');
+}
+
+method spec {
+  return $self->collection('spec');
+}
 1;
 
 __END__
@@ -17,35 +52,45 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Role::Branch - Branch Roles
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
 =head1 METHODS
 
-=head2 by_sequence
+=head2 dependent_branches
 
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
+Collection of merge proposals that are dependent on this branch
 
-=head2 bugs
+=head2 landing_candidates
 
-Returns a list of entries associated with cve
+Collection of merge proposals where this branch is target branch
+
+=head2 landing_targets
+
+Collection of merge proposals where this branch is source branch
+
+=head2 reviewer
+
+Reviewer team associated with this branch
+
+=head2 sourcepackage
+
+Source package that this branch belongs too
+
+=head2 subscribers
+
+Persons subscribed to this branch
+
+=head2 subscriptions
+
+Branch subscriptions related to this branch
+
+=head2 spec
+
+Specification linked to this branch
 
 =head1 AUTHOR
 

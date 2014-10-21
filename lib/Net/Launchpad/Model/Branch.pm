@@ -1,9 +1,9 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
-
+package Net::Launchpad::Model::Branch;
+# ABSTRACT: Branch Model
+$Net::Launchpad::Model::Branch::VERSION = '1.1.0_1';
 use Moose;
 use namespace::autoclean;
+
 extends 'Net::Launchpad::Model::Base';
 
 __PACKAGE__->meta->make_immutable;
@@ -17,35 +17,11 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Model::Branch - Branch Model
 
 =head1 VERSION
 
 version 1.1.0_1
-
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
-=head1 METHODS
-
-=head2 by_sequence
-
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
-
-=head2 bugs
-
-Returns a list of entries associated with cve
 
 =head1 AUTHOR
 

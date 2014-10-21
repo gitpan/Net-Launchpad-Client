@@ -1,12 +1,52 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Role::Common;
+$Net::Launchpad::Role::Common::VERSION = '1.1.0_1';
+# ABSTRACT: Common query roles usually associated with most API results
 
-use Moose;
-use namespace::autoclean;
-extends 'Net::Launchpad::Model::Base';
+use Moose::Role;
+use Function::Parameters;
 
-__PACKAGE__->meta->make_immutable;
+
+method resource ($name) {
+    my $link = $name . "_link";
+    my $ret  = $self->lpc->get($self->result->{$link});
+    return $ret;
+}
+
+
+method collection ($name) {
+    my $link = $name . "_collection_link";
+    my $ret  = $self->lpc->get($self->result->{$link});
+    return $ret->{entries};
+}
+
+
+method owner {
+    return $self->resource('owner');
+}
+
+
+method project {
+    return $self->resource('project');
+}
+
+
+
+method recipes {
+    return $self->collection('recipes');
+}
+
+
+
+method bugs {
+    return $self->collection('bugs');
+}
+
+
+
+method registrant {
+    return $self->resource('registrant');
+}
+
 1;
 
 __END__
@@ -17,35 +57,41 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Role::Common - Common query roles usually associated with most API results
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
 =head1 METHODS
 
-=head2 by_sequence
+=head2 resource
 
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
+Returns resource of C<name>
+
+=head2 collection
+
+Returns entires from collection C<name>
+
+=head2 owner
+
+Owner of collection
+
+=head2 project
+
+Project this collection belongs too
+
+=head2 recipes
+
+Recipes associated with collection
 
 =head2 bugs
 
-Returns a list of entries associated with cve
+Bugs associated with object
+
+=head2 registrant
+
+User that registered this branch
 
 =head1 AUTHOR
 

@@ -1,72 +1,12 @@
 package Net::Launchpad::Model::Project;
 # ABSTRACT: Project Model interface
-$Net::Launchpad::Model::Project::VERSION = '1.03';
+$Net::Launchpad::Model::Project::VERSION = '1.1.0_1';
+use Moose;
+use namespace::autoclean;
 
-use Mojo::Base 'Net::Launchpad::Client';
+extends 'Net::Launchpad::Model::Base';
 
-has 'project' => '';
-
-sub by_name {
-    my ($self, $name) = @_;
-    $self->project($self->get(sprintf("%s/%s", $self->api_url, $name)));
-}
-
-sub bug_supervisor_link {
-    my $self = shift;
-    return $self->project->{bug_supervisor_link};
-}
-
-sub bug_reporting_guidelines {
-    my $self = shift;
-    return $self->project->{bug_reporting_guidelines};
-}
-
-sub bug_tracker_link {
-    my $self = shift;
-    return $self->project->{bug_tracker_link};
-}
-
-sub date_created {
-    my $self = shift;
-    return $self->project->{date_created};
-}
-
-sub description {
-    my $self = shift;
-    return $self->project->{description};
-}
-
-sub name {
-    my $self = shift;
-    return $self->project->{name};
-}
-
-sub official_bug_tags {
-    my $self = shift;
-    return $self->project->{official_bug_tags};
-}
-
-sub owner {
-    my $self = shift;
-    my $owner = $self->get($self->project->{owner_link});
-    return $owner;
-}
-
-sub summary {
-    my $self = shift;
-    return $self->project->{summary};
-}
-
-sub title {
-    my $self = shift;
-    return $self->project->{title};
-}
-
-sub web_link {
-    my $self = shift;
-    return $self->project->{web_link};
-}
-
+__PACKAGE__->meta->make_immutable;
 1;
 
 __END__
@@ -81,7 +21,7 @@ Net::Launchpad::Model::Project - Project Model interface
 
 =head1 VERSION
 
-version 1.03
+version 1.1.0_1
 
 =head1 SYNOPSIS
 
@@ -91,11 +31,10 @@ version 1.03
         access_token        => '3243232',
         access_token_secret => '432432432'
     );
-    $c->staging(1);
 
-    my $project = $c->model('Project')->by_name('sosreport');
+    my $project = $c->project('sosreport');
 
-    print "Name: ". $project->name;
+    print "Name: ". $project->{name};
 
 =head1 DESCRIPTION
 
@@ -111,9 +50,9 @@ Holds project object.
 
 Query a project by name
 
-=head2 bug_supervisor_link
+=head2 owner
 
-Link to bug supervisor
+Return owner of project
 
 =head1 AUTHOR
 

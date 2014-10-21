@@ -1,10 +1,69 @@
-package Net::Launchpad::Model::CVE;
-# ABSTRACT: CVE Model
-$Net::Launchpad::Model::CVE::VERSION = '1.1.0_1';
+package Net::Launchpad::Query;
+$Net::Launchpad::Query::VERSION = '1.1.0_1';
+# ABSTRACT: Query class
 
 use Moose;
+use Moose::Util qw(apply_all_roles is_role does_role search_class_by_role);
+use Function::Parameters;
+use Mojo::Parameters;
+use Module::Runtime qw(is_module_name use_package_optimistically);
 use namespace::autoclean;
-extends 'Net::Launchpad::Model::Base';
+
+has lpc => (is => 'ro', isa => 'Net::Launchpad::Client');
+
+method _load_model (Str $name, HashRef $params) {
+    my $model_class = "Net::Launchpad::Model::$name::Query";
+    my $model_role  = "Net::Launchpad::Role::$name::Query";
+
+    die "Invalid model requested." unless is_module_name($model_class);
+    die "Unknown Role module" unless is_module_name($model_role);
+
+    my $model =
+      use_package_optimistically($model_class)->new(lpc => $self->lpc);
+
+    my $role =
+      use_package_optimistically($model_role);
+
+    die "$_ is not a role" unless is_role($role);
+    $role->meta->apply($model);
+}
+
+# method bugtrackers {
+#     return $self->_load_model('BugTracker');
+# }
+
+# method builders {
+#     return $self->_load_model('Builder');
+# }
+
+# method countries {
+#     return $self->_load_model('Country');
+# }
+
+method branches {
+    return $self->_load_model('Branch');
+}
+
+# method people {
+#     return $self->_load_model('Person');
+# }
+
+# method distributions {
+#     return $self->_load_model('Distribution');
+# }
+
+# method languages {
+#     return $self->_load_model('Language');
+# }
+
+# method cves {
+#     return $self->_load_model('CVE');
+# }
+
+# method projects {
+#     return $self->_load_model('Project');
+# }
+
 
 __PACKAGE__->meta->make_immutable;
 1;
@@ -17,35 +76,17 @@ __END__
 
 =head1 NAME
 
-Net::Launchpad::Model::CVE - CVE Model
+Net::Launchpad::Query - Query class
 
 =head1 VERSION
 
 version 1.1.0_1
 
-=head1 SYNOPSIS
-
-    use Net::Launchpad::Client;
-    my $c = Net::Launchpad::Client->new(
-        consumer_key        => 'key',
-        access_token        => '3243232',
-        access_token_secret => '432432432'
-    );
-
-    my $cve = $c->cve('XXXX-XXXX');
-
-    print "Title: ". $cve->{title};
-    print "Desc:  ". $cve->{description};
-
 =head1 METHODS
 
-=head2 by_sequence
+=head2 branches
 
-This needs to be called before any of the below methods. Takes a CVE sequence number, e.g. 2011-3188.
-
-=head2 bugs
-
-Returns a list of entries associated with cve
+Search utilities for branches
 
 =head1 AUTHOR
 
