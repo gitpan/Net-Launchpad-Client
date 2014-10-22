@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Query::Country;
 BEGIN {
   $Net::Launchpad::Model::Query::Country::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Country::VERSION = '1.2.0';
+$Net::Launchpad::Model::Query::Country::VERSION = '1.2.1';
 # ABSTRACT: Country query model
 
 use Moose;
@@ -11,7 +11,7 @@ use namespace::autoclean;
 
 extends 'Net::Launchpad::Model::Base';
 
-has '+ns' => (is => 'ro', default => 'countries');
+has '+ns' => (is => 'ro', default => '+countries');
 
 __PACKAGE__->meta->make_immutable;
 
@@ -29,7 +29,7 @@ Net::Launchpad::Model::Query::Country - Country query model
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 AUTHOR
 

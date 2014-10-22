@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Country::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Country model
-$Net::Launchpad::Model::Country::VERSION = '1.2.0';
+$Net::Launchpad::Model::Country::VERSION = '1.2.1';
 
 use Moose;
 use namespace::autoclean;
@@ -24,7 +24,7 @@ Net::Launchpad::Model::Country - Country model
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 SYNOPSIS
 

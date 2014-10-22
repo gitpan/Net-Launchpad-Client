@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Language;
 BEGIN {
   $Net::Launchpad::Model::Language::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Language::VERSION = '1.2.0';
+$Net::Launchpad::Model::Language::VERSION = '1.2.1';
 # ABSTRACT: Language Model
 
 use Moose;
@@ -25,7 +25,7 @@ Net::Launchpad::Model::Language - Language Model
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 AUTHOR
 

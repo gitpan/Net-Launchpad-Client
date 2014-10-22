@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Project;
 BEGIN {
   $Net::Launchpad::Role::Project::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Project::VERSION = '1.2.0';
+$Net::Launchpad::Role::Project::VERSION = '1.2.1';
 # ABSTRACT: Project roles
 
 use Moose::Role;
@@ -24,7 +24,7 @@ Net::Launchpad::Role::Project - Project roles
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 AUTHOR
 

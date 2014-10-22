@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Query;
 BEGIN {
   $Net::Launchpad::Role::Query::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Query::VERSION = '1.2.0';
+$Net::Launchpad::Role::Query::VERSION = '1.2.1';
 # ABSTRACT: Common pure query roles
 
 use Moose::Role;
@@ -42,7 +42,7 @@ Net::Launchpad::Role::Query - Common pure query roles
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 ATTRIBUTES
 

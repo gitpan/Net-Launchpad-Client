@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Query::Builder;
 BEGIN {
   $Net::Launchpad::Model::Query::Builder::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Builder::VERSION = '1.2.0';
+$Net::Launchpad::Model::Query::Builder::VERSION = '1.2.1';
 # ABSTRACT: Builder query model
 
 
@@ -30,7 +30,7 @@ Net::Launchpad::Model::Query::Builder - Builder query model
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 SYNOPSIS
 

@@ -2,7 +2,7 @@ package Net::Launchpad::Model;
 BEGIN {
   $Net::Launchpad::Model::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::VERSION = '1.2.0';
+$Net::Launchpad::Model::VERSION = '1.2.1';
 # ABSTRACT: Model class
 
 use Moose;
@@ -119,7 +119,7 @@ Net::Launchpad::Model - Model class
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 AUTHOR
 

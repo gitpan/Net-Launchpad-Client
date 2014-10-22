@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Query::Country;
 BEGIN {
   $Net::Launchpad::Role::Query::Country::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Query::Country::VERSION = '1.2.0';
+$Net::Launchpad::Role::Query::Country::VERSION = '1.2.1';
 # ABSTRACT: Person/People query role
 
 use Moose::Role;
@@ -44,7 +44,7 @@ Net::Launchpad::Role::Query::Country - Person/People query role
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 METHODS
 

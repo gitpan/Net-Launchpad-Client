@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Distribution;
 BEGIN {
   $Net::Launchpad::Role::Distribution::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Distribution::VERSION = '1.2.0';
+$Net::Launchpad::Role::Distribution::VERSION = '1.2.1';
 # ABSTRACT: Distribution roles
 
 use Moose::Role;
@@ -79,7 +79,7 @@ Net::Launchpad::Role::Distribution - Distribution roles
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 METHODS
 

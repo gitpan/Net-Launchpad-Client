@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Query::Project;
 BEGIN {
   $Net::Launchpad::Model::Query::Project::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Project::VERSION = '1.2.0';
+$Net::Launchpad::Model::Query::Project::VERSION = '1.2.1';
 # ABSTRACT: Project query model
 
 
@@ -30,7 +30,7 @@ Net::Launchpad::Model::Query::Project - Project query model
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 SYNOPSIS
 

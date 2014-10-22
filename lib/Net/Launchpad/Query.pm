@@ -2,7 +2,7 @@ package Net::Launchpad::Query;
 BEGIN {
   $Net::Launchpad::Query::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Query::VERSION = '1.2.0';
+$Net::Launchpad::Query::VERSION = '1.2.1';
 # ABSTRACT: Query class
 
 use Moose;
@@ -70,7 +70,7 @@ Net::Launchpad::Query - Query class
 
 =head1 VERSION
 
-version 1.2.0
+version 1.2.1
 
 =head1 METHODS
 
