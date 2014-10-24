@@ -3,7 +3,19 @@ BEGIN {
   $Net::Launchpad::Client::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Launchpad.net Client
-$Net::Launchpad::Client::VERSION = '1.2.1';
+$Net::Launchpad::Client::VERSION = '2.000';
+# TODO:
+# <wgrant> stokachu: A GET to the API root with an Accept header of
+# "application/vd.sun.wadl+xml". This is documented on
+# https://help.launchpad.net/API/Hacking, fwiw.
+# <wgrant> Also, a GET to the application root itself will give you the root collects as JSON.
+# <wgrant> eg. https://api.launchpad.net/1.0//?ws.accept=application/json
+# <wgrant> (ws.accept overrides the Accepts header, for easy poking in a browser)
+# <wgrant> The HTML docs are generated from the machine-readable
+# WADL. You don't need to parse the WADL unless you want something
+# like launchpadlib, where objects know about their methods, and check
+# arguments automatically, etc.
+
 
 use Moose;
 use Function::Parameters;
@@ -114,7 +126,7 @@ Net::Launchpad::Client - Launchpad.net Client
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 SYNOPSIS
 

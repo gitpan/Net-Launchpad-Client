@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Archive::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Archive Model
-$Net::Launchpad::Model::Archive::VERSION = '1.2.1';
+$Net::Launchpad::Model::Archive::VERSION = '2.000';
 use Moose;
 use namespace::autoclean;
 
@@ -24,7 +24,7 @@ Net::Launchpad::Model::Archive - Archive Model
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 AUTHOR
 

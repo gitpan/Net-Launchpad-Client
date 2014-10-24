@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Query::Person;
 BEGIN {
   $Net::Launchpad::Model::Query::Person::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Person::VERSION = '1.2.1';
+$Net::Launchpad::Model::Query::Person::VERSION = '2.000';
 # ABSTRACT: Person/people query model
 
 
@@ -30,7 +30,7 @@ Net::Launchpad::Model::Query::Person - Person/people query model
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 SYNOPSIS
 

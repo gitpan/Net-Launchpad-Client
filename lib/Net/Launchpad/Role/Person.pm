@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Person;
 BEGIN {
   $Net::Launchpad::Role::Person::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Person::VERSION = '1.2.1';
+$Net::Launchpad::Role::Person::VERSION = '2.000';
 use Moose::Role;
 use Function::Parameters;
 
@@ -40,7 +40,7 @@ Net::Launchpad::Role::Person - Person roles
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 METHODS
 

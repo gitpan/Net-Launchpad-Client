@@ -2,7 +2,7 @@ package Net::Launchpad::Model::Query::Country;
 BEGIN {
   $Net::Launchpad::Model::Query::Country::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Model::Query::Country::VERSION = '1.2.1';
+$Net::Launchpad::Model::Query::Country::VERSION = '2.000';
 # ABSTRACT: Country query model
 
 use Moose;
@@ -29,7 +29,7 @@ Net::Launchpad::Model::Query::Country - Country query model
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 AUTHOR
 

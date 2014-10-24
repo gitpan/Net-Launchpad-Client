@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Bug;
 BEGIN {
   $Net::Launchpad::Role::Bug::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Bug::VERSION = '1.2.1';
+$Net::Launchpad::Role::Bug::VERSION = '2.000';
 # ABSTRACT: Bug roles
 
 use Moose::Role;
@@ -54,7 +54,7 @@ Net::Launchpad::Role::Bug - Bug roles
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 METHODS
 

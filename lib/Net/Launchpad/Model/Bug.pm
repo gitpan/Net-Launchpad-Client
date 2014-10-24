@@ -3,7 +3,7 @@ BEGIN {
   $Net::Launchpad::Model::Bug::AUTHORITY = 'cpan:ADAMJS';
 }
 # ABSTRACT: Bug Model
-$Net::Launchpad::Model::Bug::VERSION = '1.2.1';
+$Net::Launchpad::Model::Bug::VERSION = '2.000';
 
 use Moose;
 use namespace::autoclean;
@@ -25,7 +25,7 @@ Net::Launchpad::Model::Bug - Bug Model
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 SYNOPSIS
 

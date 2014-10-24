@@ -2,7 +2,7 @@ package Net::Launchpad::Role::Common;
 BEGIN {
   $Net::Launchpad::Role::Common::AUTHORITY = 'cpan:ADAMJS';
 }
-$Net::Launchpad::Role::Common::VERSION = '1.2.1';
+$Net::Launchpad::Role::Common::VERSION = '2.000';
 # ABSTRACT: Common query roles usually associated with most API results
 
 use Moose::Role;
@@ -64,7 +64,7 @@ Net::Launchpad::Role::Common - Common query roles usually associated with most A
 
 =head1 VERSION
 
-version 1.2.1
+version 2.000
 
 =head1 METHODS
 
